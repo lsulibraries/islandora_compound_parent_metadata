@@ -55,11 +55,13 @@ function islandora_compound_parent_metadata_islandora_view_object_alter(&$object
         $markup = theme('islandora_solr_metadata_display', $elements);
       }
       else {
-        $markup = theme('islandora_dublin_core_display', array('islandora_object' => $parent_object));
+        //$markup = theme('islandora_dublin_core_display', array('islandora_object' => $parent_object));
+        $markup = islandora_retrieve_metadata_markup($parent_object);
       }
     }
     else {
-      $markup = theme('islandora_dublin_core_display', array('islandora_object' => $parent_object));
+      //$markup = theme('islandora_dublin_core_display', array('islandora_object' => $parent_object));
+      $markup = islandora_retrieve_metadata_markup($parent_object);
     }
 
     $label = variable_get('islandora_compound_parent_metadata_label', 'Part of');
